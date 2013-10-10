@@ -1,3 +1,3 @@
 NightPHP
 ========
-NightPHP
+The PHP framework
