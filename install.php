@@ -8,7 +8,7 @@ echo 'step'.$_GET['p'] ."<br/>";
 
 if($_GET['p'] == 1){
 
-    echo <<<EOF
+    echo <<<PNEOF
     NightPHP  安装程序<br/>
     请指定安装程序和安装目录的相对路径
     <form method='post' action='install.php?p=2'>
@@ -16,7 +16,7 @@ if($_GET['p'] == 1){
         项目安装目录:<input type='text' name='ProjPath' value='$ProjPath' /><br/>
         <input type='submit' value='下一步'/>
     </form>
-EOF;
+PNEOF;
 
 }elseif($_GET['p'] == 2){
 
@@ -30,7 +30,7 @@ EOF;
     if ($CoreFile && is_file($CoreFile)){
         $aaa = true;
     }else{
-        echo <<<EOF
+        echo <<<PNEOF
             没有找到 $CoreFile 文件<br/>
             <form method='post' action='install.php?p=1'>
                 <input type='hidden' name='CoreFile' value='$CoreFile' />
@@ -38,14 +38,14 @@ EOF;
                 <input type='submit' value='上一步' />
             </form>
 
-EOF;
+PNEOF;
         exit;
     }
 
     if(is_dir($ProjPath)){
         $bbb = true;
     }else{
-        echo <<<EOF
+        echo <<<PNEOF
         没有找到 $ProjPath 目录<br/>
         是否创建?
         <form method='post' action='install.php?p=1'>
@@ -58,13 +58,13 @@ EOF;
             <input type='hidden' name='ProjPath' value='$ProjPath' />
             <input type='submit' value='下一步' name='mnext'/>
         </form>
-EOF;
+PNEOF;
 
     }
 
     if ($aaa && $bbb){
 
-        echo <<<EOF
+        echo <<<PNEOF
         $tips1
         符合安装条件,是否继续?<br/>
         <form method='post' action='install.php?p=1'>
@@ -77,7 +77,7 @@ EOF;
             <input type='hidden' name='ProjPath' value='$ProjPath' />
             <input type='submit' value='下一步'/>
         </form>
-EOF;
+PNEOF;
     }
 }elseif($_GET['p'] == 3){
 
@@ -110,20 +110,20 @@ EOF;
 
     //index.php
     $indexFileStr = "<?php
-require ( \"".realpath($CoreFile)."\" );
+require ( '".realpath($CoreFile)."' );
 \$NightPHP = new NightPHP;
 \$NightPHP -> Run();";
     file_put_contents ($ProjPath.'/index.php',$indexFileStr);
 
     $viewFileStr="<?php
-    echo <<<NPEOF
+    echo <<<PNEOF
     Hello World
-NPEOF;
+PNEOF;
 ";
 
     file_put_contents ($ProjPath.'/view/index/view.index.php',$viewFileStr);
 
-    echo '安装成功!!';
+    echo '安装成功!!请通过浏览器访问安装目录';
 
 
 }

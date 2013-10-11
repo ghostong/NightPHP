@@ -1,5 +1,5 @@
 <?php
-echo <<<PHPEOF
+echo <<<NPEOF
 <html>
     <head>
         <title>$PageTitle</title>
@@ -15,5 +15,5 @@ echo <<<PHPEOF
         $PageShow
     </body>
 </html>
-PHPEOF;
+NPEOF;
 
