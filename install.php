@@ -4,7 +4,17 @@ $_GET['p'] ? $_GET['p'] :$_GET['p'] = 1;
 $CoreFile = $_POST['CoreFile'];
 $ProjPath = $_POST['ProjPath'];
 
-echo 'step'.$_GET['p'] ."<br/>";
+echo <<<PNEOF
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=GBK">
+        <title>NightPHP安装程序-Step {$_GET['p']}</title>
+    </head>
+    
+    <body>
+    <h3>Step {$_GET['p']} </h3>
+
+PNEOF;
 
 if($_GET['p'] == 1){
 
@@ -127,3 +137,6 @@ PNEOF;
 
 
 }
+
+echo "</body>
+</html>";
