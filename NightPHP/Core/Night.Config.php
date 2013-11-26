@@ -22,5 +22,5 @@ defined('U_L_P') or define('U_L_P',U_APP_P.U_LOGIC.NP_DS); //Project Logic Dir
 defined('U_C_P') or define('U_C_P',U_APP_P.U_COMBO.NP_DS); //Project Combo Dir
 defined('U_V_P') or define('U_V_P',U_APP_P.U_VIEW.NP_DS); //Project View Dir
 
-defined('CT_PARAM') or define('AC_PARAM' , 'ct');
+defined('CT_PARAM') or define('CT_PARAM' , 'ct');
 defined('AC_PARAM') or define('AC_PARAM' , 'ac');
