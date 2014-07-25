@@ -12,3 +12,6 @@ foreach ($TeachList as $key => $val) {
     }
     $PageShow .='<br/>';
 }
+
+
+$this -> ReadView();

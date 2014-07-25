@@ -108,7 +108,7 @@ PNEOF;
         'index.php',
         'logic/index/logic.index.php',
         'combo/index/combo.index.php',
-        'view/index/view.index.php',
+        'view/index/view.index.html',
         'lib/class/class.test.php',
         'lib/function/function.test.php',
     );

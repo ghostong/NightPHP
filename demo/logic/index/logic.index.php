@@ -92,3 +92,6 @@ $TeachList = array (
         'content' => 'https://github.com/ghostong/NightPHP',
     ),
 );
+
+
+$this -> ReadCombo();

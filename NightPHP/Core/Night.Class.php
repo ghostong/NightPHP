@@ -2,10 +2,10 @@
 
 class NightPHP {
 
-    public $CoFile; //Combo file name
-    public $ViFile; //View file name
+    public $Page404 = false; //Is open 404 page
+    private $CoFile; //Combo file name
+    private $ViFile; //View file name
     private $argvRet = array(); //$_GET argv
-    private $Page404 = false; //Is open 404 page
     private $ErrFile = '';
 
     public function Run () { //Main
@@ -13,13 +13,32 @@ class NightPHP {
         try {
             $this -> getLogicFile();
             require ($this -> logicFile);
-            $this -> getComboFile();
-            require ($this -> comboFile);
-            $this -> getViewFile();
-            require ($this -> viewFile);
+            if (defined('NP_READ_COMBO')){
+                $this -> getComboFile();
+                require ($this -> comboFile);
+            }
+            if (defined('NP_READ_VIEW')){
+                $this -> getViewFile();
+                require ($this -> viewFile);
+            }
         }catch(Exception $NPError){
             $err = $NPError -> getMessage();
             $this -> NPException($err);
+        }
+    }
+
+    public function ReadCombo($ComboFille = false){
+        define('NP_READ_COMBO',true);
+        if ($ComboFille){
+            $this -> CoFile = $ComboFille;
+        }
+
+    }
+
+    public function ReadView($ViewFile = false){
+        define('NP_READ_VIEW',true);
+        if ($ViewFile){
+            $this -> ViFile = $ViewFile;
         }
     }
 
@@ -54,7 +73,7 @@ class NightPHP {
         if ($this -> ViFile) {
             $this -> viewFile = $this -> ViFile;
         }else{
-            $this -> viewFile = U_V_P.$this -> argvRet['CtParam'].NP_DS.U_VIEW.'.'.$this -> argvRet['AcParam'].".php";
+            $this -> viewFile = U_V_P.$this -> argvRet['CtParam'].NP_DS.U_VIEW.'.'.$this -> argvRet['AcParam'].".html";
         }
         if (!is_file($this -> viewFile)) {
             $this -> ErrFile = $this -> viewFile;
