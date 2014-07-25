@@ -125,6 +125,14 @@ require ( '".realpath($CoreFile)."' );
 \$NightPHP -> Run();";
     file_put_contents ($ProjPath.'/index.php',$indexFileStr);
 
+	$logicFileStr ='<?php
+	$this -> ReadCombo();';
+	file_put_contents ($ProjPath.'/logic/index/logic.index.php',$logicFileStr);
+	
+	$comboFileStr ='<?php
+	$this -> ReadView();';
+	file_put_contents ($ProjPath.'/combo/index/combo.index.php',$comboFileStr);
+	
     $viewFileStr="<?php
     echo <<<PNEOF
     Hello World
