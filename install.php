@@ -131,7 +131,7 @@ require ( '".realpath($CoreFile)."' );
 PNEOF;
 ";
 
-    file_put_contents ($ProjPath.'/view/index/view.index.php',$viewFileStr);
+    file_put_contents ($ProjPath.'/view/index/view.index.html',$viewFileStr);
 
     echo '安装成功!!请通过浏览器访问安装目录';
 
