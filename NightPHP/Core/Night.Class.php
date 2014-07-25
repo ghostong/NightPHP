@@ -3,8 +3,8 @@
 class NightPHP {
 
     public $Page404 = false; //Is open 404 page
-    private $CoFile; //Combo file name
-    private $ViFile; //View file name
+    private $CoFile = ''; //Combo file name
+    private $ViFile = ''; //View file name
     private $argvRet = array(); //$_GET argv
     private $ErrFile = '';
 
