@@ -45,12 +45,12 @@ class NightPHP {
     private function getArgv(){
         $CtParam = $_GET[CT_PARAM]? $_GET[CT_PARAM] : 'index';
         $AcParam = $_GET[AC_PARAM]? $_GET[AC_PARAM] : 'index';
-        $Ret = array('CtParam' => $CtParam,'AcParam' => $AcParam);
-        return $Ret;
+        define('CT_VAL',$CtParam);
+        define('AC_VAL',$AcParam);
     }
 
     private function getLogicFile(){
-        $this -> logicFile = U_L_P.$this -> argvRet['CtParam'].NP_DS.U_LOGIC.'.'.$this -> argvRet['AcParam'].".php";
+        $this -> logicFile = U_L_P.CT_VAL.NP_DS.U_LOGIC.'.'.AC_VAL.".php";
         if (!is_file($this -> logicFile)) {
             $this -> ErrFile = $this -> logicFile;
             throw new Exception('NightPHP404');
@@ -61,7 +61,7 @@ class NightPHP {
         if ($this -> CoFile){
             $this -> comboFile = $this -> CoFile;
         }else{
-            $this -> comboFile = U_C_P.$this->argvRet['CtParam'].NP_DS.U_COMBO.'.'.$this -> argvRet['AcParam'].".php";
+            $this -> comboFile = U_C_P.CT_VAL.NP_DS.U_COMBO.'.'.AC_VAL.".php";
         }
         if (!is_file($this -> comboFile)) {
             $this -> ErrFile = $this -> comboFile;
@@ -73,7 +73,7 @@ class NightPHP {
         if ($this -> ViFile) {
             $this -> viewFile = $this -> ViFile;
         }else{
-            $this -> viewFile = U_V_P.$this -> argvRet['CtParam'].NP_DS.U_VIEW.'.'.$this -> argvRet['AcParam'].".html";
+            $this -> viewFile = U_V_P.CT_VAL.NP_DS.U_VIEW.'.'.AC_VAL.".html";
         }
         if (!is_file($this -> viewFile)) {
             $this -> ErrFile = $this -> viewFile;

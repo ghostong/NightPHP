@@ -1,6 +1,10 @@
 <?php
 #Path Config
 
+##version
+define('NP_NAME','NightPHP');
+define('NP_VERSION','0.0.1(beta)');
+
 ##Framework
 defined('NP_FUNC_F')  or define('NP_FUNC_F'  ,NP_CORE_P.'Night.Function.php'); //Core Function
 defined('NP_CLASS_F') or define('NP_CLASS_F' ,NP_CORE_P.'Night.Class.php'); //Core Class
@@ -24,3 +28,4 @@ defined('U_V_P') or define('U_V_P',U_APP_P.U_VIEW.NP_DS); //Project View Dir
 
 defined('CT_PARAM') or define('CT_PARAM' , 'ct');
 defined('AC_PARAM') or define('AC_PARAM' , 'ac');
+
