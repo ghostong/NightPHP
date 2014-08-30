@@ -42,6 +42,7 @@ echo "
             <tr><td class='npkey'>Email</td><td class='npval'>ghostong@126.com</td></tr>
             <tr><td class='npkey'>GitHub</td><td class='npval'>https://github.com/ghostong/NightPHP</td></tr>
             <tr><td class='npkey'>Documentation</td><td class='npval'>http://ghostong.sinaapp.com/nightphp</td></tr>
+            <tr><td class='npkey'>Last updated</td><td class='npval'>2014-08-30</td></tr>
         </table>
     </body>
 </html>";
