@@ -141,7 +141,7 @@ PNEOF;
 
     file_put_contents ($ProjPath.'/view/index/view.index.html',$viewFileStr);
 
-    echo '安装成功!!请通过浏览器访问安装目录';
+    echo "安装成功!!请通过浏览器<a href='$ProjPath'>访问安装目录</a>";
 
 
 }

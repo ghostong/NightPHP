@@ -70,7 +70,7 @@ $TeachList = array (
         'title' => 'NightPHP 语言参考',
         'content' => array(
             1=> array(
-                'title' => 'function NC(\'classname\');',
+                'title' => 'function NC(\'class file\');',
                 'content' => '直接调用核心类',
             ),
             2=> array(
@@ -78,16 +78,32 @@ $TeachList = array (
                 'content' => '直接包含核心函数文件',
             ),
             3=> array(
-                'title' => 'function UC(\'classname\');',
+                'title' => 'function UC(\'class file\');',
                 'content' => '直接调用用户类',
             ),
             4=> array(
                 'title' => 'function UF(\'function file\');',
                 'content' => '直接包含用户函数文件',
             ),
+			5=> array(
+                'title' => '函数目录及文件名',
+                'content' => U_FUNC_P.'function.test.php',
+            ),
+			6=> array(
+				'title' => '类目录及文件',
+				'content' => U_CLASS_P.'class.test.php',
+			),
+			7=> array(
+				'title' => '例',
+				'content' => 'UF(\'test\');   UC(\'test\');  UC(\'test\')->demo(); ',
+			),
         ),
     ),
-    6 => array (
+	6 => array (
+		'title' => 'npinfo()',
+		'content' => '使用 npinfo();函数,查看NightPHP信息及常量.',
+	),
+    7 => array (
         'title' => 'GitHub 托管地址',
         'content' => 'https://github.com/ghostong/NightPHP',
     ),
