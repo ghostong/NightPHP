@@ -13,8 +13,8 @@ defined('NP_CLASS_P') or define('NP_CLASS_P',NP_LIB_P.'Class'.NP_DS); //Core Lib
 defined('NP_FUNC_P')  or define('NP_FUNC_P' ,NP_LIB_P.'Function'.NP_DS); //Core Lib Function Path
 
 ##User
-defined('U_APP_P')   or define('U_APP_P'  ,dirname($_SERVER['SCRIPT_FILENAME']).NP_DS); //User App Path
-defined('U_LIB_P')   or define('U_LIB_P' ,U_APP_P.'lib'.NP_DS); //User App lib Path
+defined('U_APP_P')   or define('U_APP_P'  ,WEBROOT_DIR.NP_DS); //User App Path
+defined('U_LIB_P')   or define('U_LIB_P'  ,U_APP_P.'lib'.NP_DS); //User App lib Path
 defined('U_CLASS_P') or define('U_CLASS_P',U_LIB_P.'class'.NP_DS); //Core Lib Class Path
 defined('U_FUNC_P')  or define('U_FUNC_P' ,U_LIB_P.'function'.NP_DS); //Core Lib Class Path
 

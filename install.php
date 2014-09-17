@@ -7,8 +7,8 @@ $ProjPath = $_POST['ProjPath'];
 echo <<<PNEOF
 <html>
     <head>
-        <meta http-equiv="content-type" content="text/html;charset=GBK">
-        <title>NightPHP��װ����-Step {$_GET['p']}</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <title>NightPHP安装程序-Step {$_GET['p']}</title>
     </head>
     
     <body>
@@ -19,12 +19,12 @@ PNEOF;
 if($_GET['p'] == 1){
 
     echo <<<PNEOF
-    NightPHP  ��װ����<br/>
-    ��ָ����װ����Ͱ�װĿ¼�����·��
+    NightPHP  安装程序<br/>
+    请指定安装程序和安装目录的相对路径
     <form method='post' action='install.php?p=2'>
-        ���ĳ���·��:<input type='text' name='CoreFile' value='$CoreFile' /><br/>
-        ��Ŀ��װĿ¼:<input type='text' name='ProjPath' value='$ProjPath' /><br/>
-        <input type='submit' value='��һ��'/>
+        核心程序路径:<input type='text' name='CoreFile' value='$CoreFile' /><br/>
+        项目安装目录:<input type='text' name='ProjPath' value='$ProjPath' /><br/>
+        <input type='submit' value='下一步'/>
     </form>
 PNEOF;
 
@@ -34,18 +34,18 @@ PNEOF;
 
     if ($_POST['mnext']){
         is_dir($ProjPath) || mkdir($ProjPath);
-        $tips1 = $ProjPath.'Ŀ¼�����ɹ�<br/>';
+        $tips1 = $ProjPath.'目录创建成功<br/>';
     }
     
     if ($CoreFile && is_file($CoreFile)){
         $aaa = true;
     }else{
         echo <<<PNEOF
-            û���ҵ� $CoreFile �ļ�<br/>
+            没有找到 $CoreFile 文件<br/>
             <form method='post' action='install.php?p=1'>
                 <input type='hidden' name='CoreFile' value='$CoreFile' />
                 <input type='hidden' name='ProjPath' value='$ProjPath' />
-                <input type='submit' value='��һ��' />
+                <input type='submit' value='上一步' />
             </form>
 
 PNEOF;
@@ -56,17 +56,17 @@ PNEOF;
         $bbb = true;
     }else{
         echo <<<PNEOF
-        û���ҵ� $ProjPath Ŀ¼<br/>
-        �Ƿ񴴽�?
+        没有找到 $ProjPath 目录<br/>
+        是否创建?
         <form method='post' action='install.php?p=1'>
             <input type='hidden' name='CoreFile' value='$CoreFile' />
             <input type='hidden' name='ProjPath' value='$ProjPath' />
-            <input type='submit' value='��һ��' />
+            <input type='submit' value='上一步' />
         </form>
         <form method='post' action='install.php?p=2'>
             <input type='hidden' name='CoreFile' value='$CoreFile' />
             <input type='hidden' name='ProjPath' value='$ProjPath' />
-            <input type='submit' value='��һ��' name='mnext'/>
+            <input type='submit' value='下一步' name='mnext'/>
         </form>
 PNEOF;
 
@@ -76,16 +76,16 @@ PNEOF;
 
         echo <<<PNEOF
         $tips1
-        ���ϰ�װ����,�Ƿ����?<br/>
+        符合安装条件,是否继续?<br/>
         <form method='post' action='install.php?p=1'>
             <input type='hidden' name='CoreFile' value='$CoreFile' />
             <input type='hidden' name='ProjPath' value='$ProjPath' />
-            <input type='submit' value='��һ��' />
+            <input type='submit' value='上一步' />
         </form>
         <form method='post' action='install.php?p=3'>
             <input type='hidden' name='CoreFile' value='$CoreFile' />
             <input type='hidden' name='ProjPath' value='$ProjPath' />
-            <input type='submit' value='��һ��'/>
+            <input type='submit' value='下一步'/>
         </form>
 PNEOF;
     }
@@ -120,6 +120,7 @@ PNEOF;
 
     //index.php
     $indexFileStr = "<?php
+define('WEBROOT_DIR', dirname(__FILE__));
 require ( '".realpath($CoreFile)."' );
 \$NightPHP = new NightPHP;
 \$NightPHP -> Run();";
@@ -141,7 +142,7 @@ PNEOF;
 
     file_put_contents ($ProjPath.'/view/index/view.index.html',$viewFileStr);
 
-    echo "��װ�ɹ�!!��ͨ�������<a href='$ProjPath'>���ʰ�װĿ¼</a>";
+    echo "安装成功!!请通过浏览器<a href='$ProjPath'>访问安装目录</a>";
 
 
 }
