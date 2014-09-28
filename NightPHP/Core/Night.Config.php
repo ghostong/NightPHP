@@ -16,8 +16,9 @@ defined('NP_FUNC_P')  or define('NP_FUNC_P' ,NP_LIB_P.'Function'.NP_DS); //Core 
 defined('WEBROOT_DIR') or die('The constant \'WEBROOT_DIR\' is not defined . Tuggest <b>define(\'WEBROOT_DIR\', dirname(__FILE__));</b> or <b>define(\'WEBROOT_DIR\', $_SERVER[\'SCRIPT_FILENAME\']);</b> on index.php file.');
 defined('U_APP_P')   or define('U_APP_P'  ,WEBROOT_DIR.NP_DS); //User App Path
 defined('U_LIB_P')   or define('U_LIB_P'  ,U_APP_P.'lib'.NP_DS); //User App lib Path
-defined('U_CLASS_P') or define('U_CLASS_P',U_LIB_P.'class'.NP_DS); //Core Lib Class Path
-defined('U_FUNC_P')  or define('U_FUNC_P' ,U_LIB_P.'function'.NP_DS); //Core Lib Class Path
+defined('U_CLASS_P') or define('U_CLASS_P',U_LIB_P.'class'.NP_DS); //User APP Class Path
+defined('U_FUNC_P')  or define('U_FUNC_P' ,U_LIB_P.'function'.NP_DS); //User App Funciton Path
+defined('U_CONFIG_P') or define('U_CONFIG_P' ,U_LIB_P.'config'.NP_DS); //User App Config Path
 
 defined('U_LOGIC') or define('U_LOGIC','logic'); //Logic dir name
 defined('U_COMBO') or define('U_COMBO','combo'); //Combo dir name
