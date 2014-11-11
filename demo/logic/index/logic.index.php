@@ -70,7 +70,7 @@ $TeachList = array (
         'title' => 'NightPHP 语言参考',
         'content' => array(
             1=> array(
-                'title' => 'function NC(\'class file\',\'&$Var\');',
+                'title' => 'function NC(\'class file\',&$Var);',
                 'content' => '直接调用核心类',
             ),
             2=> array(
@@ -78,7 +78,7 @@ $TeachList = array (
                 'content' => '直接包含核心函数文件',
             ),
             3=> array(
-                'title' => 'function UC(\'class file\',\'&$Var\');',
+                'title' => 'function UC(\'class file\',&$Var);',
                 'content' => '直接调用用户类',
             ),
             4=> array(
@@ -95,7 +95,7 @@ $TeachList = array (
 			),
 			7=> array(
 				'title' => '例',
-				'content' => 'UF(\'test\');   UC(\'test\',\'&$Var\');  UC(\'test\',\'$Var\')->demo(); ',
+				'content' => 'UF(\'test\');   UC(\'test\',\'&$Var\');  UC(\'test\',$Null)->demo();  UC(\'test\',$ObjTest); $ObjTest->test()',
 			),
         ),
     ),
