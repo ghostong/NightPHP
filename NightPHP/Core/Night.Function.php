@@ -1,9 +1,12 @@
 <?php
 
-function NC($ClassName){
+function NC($ClassName,&$Var=false){
     $IncFile = NP_CLASS_P.'class.'.$ClassName.'.php';
     require_once ($IncFile) ;
-    return new $ClassName;
+	if($Var!==false){
+		$Var = new $ClassName;
+		return $Var;
+	}
 }
 
 function NF($FunctionFile){
@@ -12,10 +15,13 @@ function NF($FunctionFile){
 }
 
 
-function UC($ClassName){
+function UC($ClassName,&$Var=false){
     $IncFile = U_CLASS_P.'class.'.$ClassName.'.php';
     require_once ($IncFile) ;
-    return new $ClassName;
+	if($Var!==false){
+		$Var = new $ClassName;
+		return $Var;
+	}
 }
 
 function UF($FunctionFile){
