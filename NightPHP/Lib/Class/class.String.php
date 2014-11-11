@@ -1,6 +1,6 @@
 <?php
 
-class string {
+class String {
 
     static public function RandString($len,$type){
         $len = intval ( abs($len) );
