@@ -11,15 +11,21 @@ class NightPHP {
     public function Run () { //Main
         $this -> argvRet = $this -> getArgv();
         try {
-            $this -> getLogicFile();
-            require ($this -> logicFile);
-            if (defined('NP_READ_COMBO')){
-                $this -> getComboFile();
-                require ($this -> comboFile);
+            if(LOGIC_CLOSE!==true){
+                $this -> getLogicFile();
+                require ($this -> logicFile);
             }
-            if (defined('NP_READ_VIEW')){
-                $this -> getViewFile();
-                require ($this -> viewFile);
+            if(COMBO_CLOSE!==true){
+                if (defined('NP_READ_COMBO')){
+                    $this -> getComboFile();
+                    require ($this -> comboFile);
+                }
+            }
+            if(VIEW_CLOSE!==true){
+                if (defined('NP_READ_VIEW')){
+                    $this -> getViewFile();
+                    require ($this -> viewFile);
+                }
             }
         }catch(Exception $NPError){
             $err = $NPError -> getMessage();
