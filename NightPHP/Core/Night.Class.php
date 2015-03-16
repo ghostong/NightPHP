@@ -11,6 +11,7 @@ class NightPHP {
     public function Run () { //Main
         $this -> argvRet = $this -> getArgv();
         try {
+            $Page = array();
             if(LOGIC_CLOSE!==true){
                 $this -> getLogicFile();
                 require ($this -> logicFile);
